@@ -1,8 +1,8 @@
-# Safe Japanese Document QA Pack Lite
+# Japanese File Processing Fixtures Lite
 
 **Safe, reproducible test fixtures for Japanese PDF, OCR, CSV, Unicode and ZIP QA.**
 
-Catch Japanese document-processing edge cases before your users do.
+Catch Japanese file-processing edge cases before your users do.
 
 This Lite edition contains **10 ready-to-use fixtures** covering problems such as:
 
@@ -18,29 +18,6 @@ This Lite edition contains **10 ready-to-use fixtures** covering problems such a
 Each fixture includes the input file and machine-readable ground truth in `expected.json`.
 
 Everything works offline. No API, account or external service is required.
-
----
-
-## Pro edition
-
-A larger commercial edition is planned with **100+ curated Japanese document QA fixtures**, including more compound and production-oriented edge cases.
-
-**Planned Pro features:**
-
-- 100+ fixtures
-- more PDF, OCR, CSV, Unicode and archive edge cases
-- compound cases combining multiple failure conditions
-- machine-readable ground truth
-- integrity verification
-- commercial-use license
-- one-time purchase — no subscription
-
-**Early access price: ¥4,500 (approximately US$29)**
-
-> Pro is not available for download yet.  
-> If you want to be notified when it becomes available, join the early-access list.
-
-[Join the Pro early-access list →](PRO_WAITLIST_URL)
 
 ---
 
@@ -104,6 +81,29 @@ README.md
 ```
 
 The case README explains what the fixture contains and what kind of failure it is designed to expose.
+
+---
+
+## Pro edition
+
+A larger commercial edition is planned with **100+ curated Japanese file processing fixtures**, including more compound and production-oriented edge cases.
+
+**Planned Pro features:**
+
+- 100+ fixtures
+- more PDF, OCR, CSV, Unicode and archive edge cases
+- compound cases combining multiple failure conditions
+- machine-readable ground truth
+- integrity verification
+- commercial-use license
+- one-time purchase — no subscription
+
+**Early access price: ¥4,500 (approximately US$29)**
+
+> Pro is not available for download yet.  
+> If you want to be notified when it becomes available, join the early-access list.
+
+[Join the Pro early-access list →](https://docs.google.com/forms/d/e/1FAIpQLSfGc_Q2munmzZwWe7oiaPlwHi-ra1tWBkliqxOROvuSBJOxRg/viewform)
 
 ---
 
