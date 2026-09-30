@@ -1,0 +1,157 @@
+{
+  "id": "pdf-003",
+  "category": "pdf",
+  "description": "One A4 page combining a scan-like 150 dpi greyscale image of Japanese text with an invisible (render mode 3) searchable text layer holding the same lines at matching positions, as produced by OCR tools that make scans searchable.",
+  "input": {
+    "file": "input.pdf",
+    "mime_type": "application/pdf",
+    "sha256": "b5e73656d296808d02eac4f10cc473d799f191eaa685a9f4e9101466b8f635b1"
+  },
+  "features": [
+    "scanned-image",
+    "invisible-text-layer",
+    "text-render-mode-3",
+    "searchable-pdf",
+    "embedded-font"
+  ],
+  "ground_truth": {
+    "page_count": 1,
+    "pages": [
+      {
+        "index": 1,
+        "mediabox": [
+          0.0,
+          0.0,
+          595.2756,
+          841.8898
+        ],
+        "width_pt": 595.2756,
+        "height_pt": 841.8898,
+        "rotate": 0,
+        "size_name": "A4",
+        "has_text_layer": true,
+        "has_image": true,
+        "image": {
+          "width_px": 1240,
+          "height_px": 1754,
+          "dpi": 150,
+          "colorspace": "DeviceGray"
+        },
+        "text_render_mode": 3,
+        "text_layer_lines": [
+          {
+            "text": "スキャン文書のサンプル",
+            "codepoints": [
+              "U+30B9",
+              "U+30AD",
+              "U+30E3",
+              "U+30F3",
+              "U+6587",
+              "U+66F8",
+              "U+306E",
+              "U+30B5",
+              "U+30F3",
+              "U+30D7",
+              "U+30EB"
+            ]
+          },
+          {
+            "text": "この文書はテスト用の架空のデータです。",
+            "codepoints": [
+              "U+3053",
+              "U+306E",
+              "U+6587",
+              "U+66F8",
+              "U+306F",
+              "U+30C6",
+              "U+30B9",
+              "U+30C8",
+              "U+7528",
+              "U+306E",
+              "U+67B6",
+              "U+7A7A",
+              "U+306E",
+              "U+30C7",
+              "U+30FC",
+              "U+30BF",
+              "U+3067",
+              "U+3059",
+              "U+3002"
+            ]
+          },
+          {
+            "text": "文書番号：TEST-0003",
+            "codepoints": [
+              "U+6587",
+              "U+66F8",
+              "U+756A",
+              "U+53F7",
+              "U+FF1A",
+              "U+0054",
+              "U+0045",
+              "U+0053",
+              "U+0054",
+              "U+002D",
+              "U+0030",
+              "U+0030",
+              "U+0030",
+              "U+0033"
+            ]
+          },
+          {
+            "text": "発行日：2026年1月1日",
+            "codepoints": [
+              "U+767A",
+              "U+884C",
+              "U+65E5",
+              "U+FF1A",
+              "U+0032",
+              "U+0030",
+              "U+0032",
+              "U+0036",
+              "U+5E74",
+              "U+0031",
+              "U+6708",
+              "U+0031",
+              "U+65E5"
+            ]
+          },
+          {
+            "text": "検索可能なテキストレイヤーを重ねています。",
+            "codepoints": [
+              "U+691C",
+              "U+7D22",
+              "U+53EF",
+              "U+80FD",
+              "U+306A",
+              "U+30C6",
+              "U+30AD",
+              "U+30B9",
+              "U+30C8",
+              "U+30EC",
+              "U+30A4",
+              "U+30E4",
+              "U+30FC",
+              "U+3092",
+              "U+91CD",
+              "U+306D",
+              "U+3066",
+              "U+3044",
+              "U+307E",
+              "U+3059",
+              "U+3002"
+            ]
+          }
+        ]
+      }
+    ],
+    "image_text_equals_text_layer": true,
+    "fonts": [
+      {
+        "name": "BIZUDGothic-Regular",
+        "embedded": true,
+        "subset": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+# Fixture generation only (Python 3.14). Versions are pinned to limit
+# byte-level drift when fixtures are regenerated.
+-r requirements.txt
+reportlab==5.0.1
+pypdf==6.19.0
+Pillow==12.3.0

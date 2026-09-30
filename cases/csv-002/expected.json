@@ -1,0 +1,253 @@
+{
+  "id": "csv-002",
+  "category": "csv",
+  "description": "UTF-8 CSV with a byte order mark and CRLF records. Cells mix half-width katakana with separate voiced sound marks, full-width Latin letters and digits, and Unicode compatibility characters (㈱, ㌔, circled digits).",
+  "input": {
+    "file": "input.csv",
+    "mime_type": "text/csv",
+    "encoding": "UTF-8",
+    "sha256": "77695882742bf61ce76a64e8d2e3dc61694bc57a9d9f80451bbf9f02b15fa6ed"
+  },
+  "features": [
+    "utf-8",
+    "bom",
+    "crlf",
+    "halfwidth-katakana",
+    "fullwidth-alphanumerics",
+    "compatibility-characters"
+  ],
+  "ground_truth": {
+    "encoding": "UTF-8",
+    "bom": true,
+    "record_terminator": "CRLF",
+    "has_header": true,
+    "row_count": 6,
+    "column_count": 4,
+    "rows": [
+      [
+        {
+          "text": "区分",
+          "codepoints": [
+            "U+533A",
+            "U+5206"
+          ]
+        },
+        {
+          "text": "表記",
+          "codepoints": [
+            "U+8868",
+            "U+8A18"
+          ]
+        },
+        {
+          "text": "読み",
+          "codepoints": [
+            "U+8AAD",
+            "U+307F"
+          ]
+        },
+        {
+          "text": "数量",
+          "codepoints": [
+            "U+6570",
+            "U+91CF"
+          ]
+        }
+      ],
+      [
+        {
+          "text": "半角カナ",
+          "codepoints": [
+            "U+534A",
+            "U+89D2",
+            "U+30AB",
+            "U+30CA"
+          ]
+        },
+        {
+          "text": "ｶﾞｸｾｲ証",
+          "codepoints": [
+            "U+FF76",
+            "U+FF9E",
+            "U+FF78",
+            "U+FF7E",
+            "U+FF72",
+            "U+8A3C"
+          ]
+        },
+        {
+          "text": "ｶﾞｸｾｲｼｮｳ",
+          "codepoints": [
+            "U+FF76",
+            "U+FF9E",
+            "U+FF78",
+            "U+FF7E",
+            "U+FF72",
+            "U+FF7C",
+            "U+FF6E",
+            "U+FF73"
+          ]
+        },
+        {
+          "text": "1",
+          "codepoints": [
+            "U+0031"
+          ]
+        }
+      ],
+      [
+        {
+          "text": "全角英数",
+          "codepoints": [
+            "U+5168",
+            "U+89D2",
+            "U+82F1",
+            "U+6570"
+          ]
+        },
+        {
+          "text": "ＡＢＣ１２３",
+          "codepoints": [
+            "U+FF21",
+            "U+FF22",
+            "U+FF23",
+            "U+FF11",
+            "U+FF12",
+            "U+FF13"
+          ]
+        },
+        {
+          "text": "エービーシー",
+          "codepoints": [
+            "U+30A8",
+            "U+30FC",
+            "U+30D3",
+            "U+30FC",
+            "U+30B7",
+            "U+30FC"
+          ]
+        },
+        {
+          "text": "２",
+          "codepoints": [
+            "U+FF12"
+          ]
+        }
+      ],
+      [
+        {
+          "text": "互換文字",
+          "codepoints": [
+            "U+4E92",
+            "U+63DB",
+            "U+6587",
+            "U+5B57"
+          ]
+        },
+        {
+          "text": "㈱サンプル",
+          "codepoints": [
+            "U+3231",
+            "U+30B5",
+            "U+30F3",
+            "U+30D7",
+            "U+30EB"
+          ]
+        },
+        {
+          "text": "カブシキガイシャサンプル",
+          "codepoints": [
+            "U+30AB",
+            "U+30D6",
+            "U+30B7",
+            "U+30AD",
+            "U+30AC",
+            "U+30A4",
+            "U+30B7",
+            "U+30E3",
+            "U+30B5",
+            "U+30F3",
+            "U+30D7",
+            "U+30EB"
+          ]
+        },
+        {
+          "text": "1",
+          "codepoints": [
+            "U+0031"
+          ]
+        }
+      ],
+      [
+        {
+          "text": "単位記号",
+          "codepoints": [
+            "U+5358",
+            "U+4F4D",
+            "U+8A18",
+            "U+53F7"
+          ]
+        },
+        {
+          "text": "㌔グラム",
+          "codepoints": [
+            "U+3314",
+            "U+30B0",
+            "U+30E9",
+            "U+30E0"
+          ]
+        },
+        {
+          "text": "キログラム",
+          "codepoints": [
+            "U+30AD",
+            "U+30ED",
+            "U+30B0",
+            "U+30E9",
+            "U+30E0"
+          ]
+        },
+        {
+          "text": "3",
+          "codepoints": [
+            "U+0033"
+          ]
+        }
+      ],
+      [
+        {
+          "text": "丸数字",
+          "codepoints": [
+            "U+4E38",
+            "U+6570",
+            "U+5B57"
+          ]
+        },
+        {
+          "text": "①②③",
+          "codepoints": [
+            "U+2460",
+            "U+2461",
+            "U+2462"
+          ]
+        },
+        {
+          "text": "マルスウジ",
+          "codepoints": [
+            "U+30DE",
+            "U+30EB",
+            "U+30B9",
+            "U+30A6",
+            "U+30B8"
+          ]
+        },
+        {
+          "text": "3",
+          "codepoints": [
+            "U+0033"
+          ]
+        }
+      ]
+    ]
+  }
+}

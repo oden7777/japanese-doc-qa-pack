@@ -1,0 +1,116 @@
+{
+  "id": "txt-002",
+  "category": "txt",
+  "description": "UTF-8 text in which each line hides one invisible or special space character inside Japanese text: ZERO WIDTH SPACE, NO-BREAK SPACE, IDEOGRAPHIC SPACE, ZERO WIDTH NO-BREAK SPACE (mid-text, not a BOM) and WORD JOINER.",
+  "input": {
+    "file": "input.txt",
+    "mime_type": "text/plain",
+    "encoding": "UTF-8",
+    "sha256": "1fa937ceab9257681bf5bbf0d73f8bd32e1e24840aac589cc34a327b9efbda74"
+  },
+  "features": [
+    "zero-width-space",
+    "no-break-space",
+    "ideographic-space",
+    "zero-width-no-break-space",
+    "word-joiner",
+    "invisible-characters"
+  ],
+  "ground_truth": {
+    "encoding": "UTF-8",
+    "bom": false,
+    "line_terminator": "LF",
+    "trailing_newline": true,
+    "unicode_version": "16.0.0",
+    "lines": [
+      {
+        "text": "東京​都",
+        "codepoints": [
+          "U+6771",
+          "U+4EAC",
+          "U+200B",
+          "U+90FD"
+        ]
+      },
+      {
+        "text": "価格 100円",
+        "codepoints": [
+          "U+4FA1",
+          "U+683C",
+          "U+00A0",
+          "U+0031",
+          "U+0030",
+          "U+0030",
+          "U+5186"
+        ]
+      },
+      {
+        "text": "全角　スペース",
+        "codepoints": [
+          "U+5168",
+          "U+89D2",
+          "U+3000",
+          "U+30B9",
+          "U+30DA",
+          "U+30FC",
+          "U+30B9"
+        ]
+      },
+      {
+        "text": "文中﻿のBOM",
+        "codepoints": [
+          "U+6587",
+          "U+4E2D",
+          "U+FEFF",
+          "U+306E",
+          "U+0042",
+          "U+004F",
+          "U+004D"
+        ]
+      },
+      {
+        "text": "単語⁠結合子",
+        "codepoints": [
+          "U+5358",
+          "U+8A9E",
+          "U+2060",
+          "U+7D50",
+          "U+5408",
+          "U+5B50"
+        ]
+      }
+    ],
+    "invisible_chars": [
+      {
+        "line": 1,
+        "index": 2,
+        "codepoint": "U+200B",
+        "name": "ZERO WIDTH SPACE"
+      },
+      {
+        "line": 2,
+        "index": 2,
+        "codepoint": "U+00A0",
+        "name": "NO-BREAK SPACE"
+      },
+      {
+        "line": 3,
+        "index": 2,
+        "codepoint": "U+3000",
+        "name": "IDEOGRAPHIC SPACE"
+      },
+      {
+        "line": 4,
+        "index": 2,
+        "codepoint": "U+FEFF",
+        "name": "ZERO WIDTH NO-BREAK SPACE"
+      },
+      {
+        "line": 5,
+        "index": 2,
+        "codepoint": "U+2060",
+        "name": "WORD JOINER"
+      }
+    ]
+  }
+}

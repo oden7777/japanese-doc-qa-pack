@@ -1,0 +1,298 @@
+{
+  "id": "csv-001",
+  "category": "csv",
+  "description": "Windows-31J (CP932) CSV with CRLF records: a quoted field containing a comma, an escaped double quote, a field with an embedded LF, quoted amounts with a thousands separator, an empty field, and characters whose Unicode mapping differs between CP932 and Shift_JIS.",
+  "input": {
+    "file": "input.csv",
+    "mime_type": "text/csv",
+    "encoding": "Windows-31J",
+    "sha256": "43497dc7a3c0e98c083866bdc0cdab57972cb484df7dc90e2edb92ff9334f04a"
+  },
+  "features": [
+    "windows-31j",
+    "cp932",
+    "quoted-field",
+    "embedded-comma",
+    "escaped-quote",
+    "embedded-newline",
+    "crlf",
+    "cp932-mapping-differences"
+  ],
+  "ground_truth": {
+    "encoding": "Windows-31J",
+    "decoder": "Python codec cp932 (Microsoft CP932 mapping)",
+    "bom": false,
+    "record_terminator": "CRLF",
+    "in_field_newline": "LF",
+    "has_header": true,
+    "row_count": 6,
+    "column_count": 4,
+    "rows": [
+      [
+        {
+          "text": "商品コード",
+          "codepoints": [
+            "U+5546",
+            "U+54C1",
+            "U+30B3",
+            "U+30FC",
+            "U+30C9"
+          ]
+        },
+        {
+          "text": "商品名",
+          "codepoints": [
+            "U+5546",
+            "U+54C1",
+            "U+540D"
+          ]
+        },
+        {
+          "text": "備考",
+          "codepoints": [
+            "U+5099",
+            "U+8003"
+          ]
+        },
+        {
+          "text": "金額",
+          "codepoints": [
+            "U+91D1",
+            "U+984D"
+          ]
+        }
+      ],
+      [
+        {
+          "text": "A001",
+          "codepoints": [
+            "U+0041",
+            "U+0030",
+            "U+0030",
+            "U+0031"
+          ]
+        },
+        {
+          "text": "りんご",
+          "codepoints": [
+            "U+308A",
+            "U+3093",
+            "U+3054"
+          ]
+        },
+        {
+          "text": "青森産, 大玉",
+          "codepoints": [
+            "U+9752",
+            "U+68EE",
+            "U+7523",
+            "U+002C",
+            "U+0020",
+            "U+5927",
+            "U+7389"
+          ]
+        },
+        {
+          "text": "1,200",
+          "codepoints": [
+            "U+0031",
+            "U+002C",
+            "U+0032",
+            "U+0030",
+            "U+0030"
+          ]
+        }
+      ],
+      [
+        {
+          "text": "A002",
+          "codepoints": [
+            "U+0041",
+            "U+0030",
+            "U+0030",
+            "U+0032"
+          ]
+        },
+        {
+          "text": "15\"モニター",
+          "codepoints": [
+            "U+0031",
+            "U+0035",
+            "U+0022",
+            "U+30E2",
+            "U+30CB",
+            "U+30BF",
+            "U+30FC"
+          ]
+        },
+        {
+          "text": "在庫～残りわずか",
+          "codepoints": [
+            "U+5728",
+            "U+5EAB",
+            "U+FF5E",
+            "U+6B8B",
+            "U+308A",
+            "U+308F",
+            "U+305A",
+            "U+304B"
+          ]
+        },
+        {
+          "text": "3,980",
+          "codepoints": [
+            "U+0033",
+            "U+002C",
+            "U+0039",
+            "U+0038",
+            "U+0030"
+          ]
+        }
+      ],
+      [
+        {
+          "text": "A003",
+          "codepoints": [
+            "U+0041",
+            "U+0030",
+            "U+0030",
+            "U+0033"
+          ]
+        },
+        {
+          "text": "ノート",
+          "codepoints": [
+            "U+30CE",
+            "U+30FC",
+            "U+30C8"
+          ]
+        },
+        {
+          "text": "1行目\n2行目",
+          "codepoints": [
+            "U+0031",
+            "U+884C",
+            "U+76EE",
+            "U+000A",
+            "U+0032",
+            "U+884C",
+            "U+76EE"
+          ]
+        },
+        {
+          "text": "150",
+          "codepoints": [
+            "U+0031",
+            "U+0035",
+            "U+0030"
+          ]
+        }
+      ],
+      [
+        {
+          "text": "A004",
+          "codepoints": [
+            "U+0041",
+            "U+0030",
+            "U+0030",
+            "U+0034"
+          ]
+        },
+        {
+          "text": "①番棚の髙級ペン",
+          "codepoints": [
+            "U+2460",
+            "U+756A",
+            "U+68DA",
+            "U+306E",
+            "U+9AD9",
+            "U+7D1A",
+            "U+30DA",
+            "U+30F3"
+          ]
+        },
+        {
+          "text": "型番AB－12",
+          "codepoints": [
+            "U+578B",
+            "U+756A",
+            "U+0041",
+            "U+0042",
+            "U+FF0D",
+            "U+0031",
+            "U+0032"
+          ]
+        },
+        {
+          "text": "500",
+          "codepoints": [
+            "U+0035",
+            "U+0030",
+            "U+0030"
+          ]
+        }
+      ],
+      [
+        {
+          "text": "A005",
+          "codepoints": [
+            "U+0041",
+            "U+0030",
+            "U+0030",
+            "U+0035"
+          ]
+        },
+        {
+          "text": "消しゴム",
+          "codepoints": [
+            "U+6D88",
+            "U+3057",
+            "U+30B4",
+            "U+30E0"
+          ]
+        },
+        {
+          "text": "",
+          "codepoints": []
+        },
+        {
+          "text": "80",
+          "codepoints": [
+            "U+0038",
+            "U+0030"
+          ]
+        }
+      ]
+    ],
+    "mapping_sensitive": [
+      {
+        "bytes_hex": "8160",
+        "cp932": "U+FF5E",
+        "shift_jis": "U+301C",
+        "row": 3,
+        "column": 3
+      },
+      {
+        "bytes_hex": "817c",
+        "cp932": "U+FF0D",
+        "shift_jis": "U+2212",
+        "row": 5,
+        "column": 3
+      },
+      {
+        "bytes_hex": "8740",
+        "cp932": "U+2460",
+        "shift_jis": null,
+        "row": 5,
+        "column": 2
+      },
+      {
+        "bytes_hex": "eee0",
+        "cp932": "U+9AD9",
+        "shift_jis": null,
+        "row": 5,
+        "column": 2
+      }
+    ]
+  }
+}

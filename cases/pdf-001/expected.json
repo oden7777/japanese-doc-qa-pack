@@ -1,0 +1,190 @@
+{
+  "id": "pdf-001",
+  "category": "pdf",
+  "description": "One A5 page of Japanese vertical text written with true PDF vertical writing (WMode 1, UniJIS-UCS2-V CMap), with ruby drawn as smaller vertical text beside its base characters. The standard CID font HeiseiMin-W3 is referenced by name only: it is not embedded and there is no ToUnicode map.",
+  "input": {
+    "file": "input.pdf",
+    "mime_type": "application/pdf",
+    "sha256": "83a4d7e3e36054b917705562936177978b78e37e0cbe8434d18ca92e81a846a7"
+  },
+  "features": [
+    "vertical-writing",
+    "pdf-wmode-1",
+    "ruby",
+    "text-layer",
+    "cid-font",
+    "non-embedded-font"
+  ],
+  "ground_truth": {
+    "page_count": 1,
+    "pages": [
+      {
+        "index": 1,
+        "mediabox": [
+          0.0,
+          0.0,
+          419.5276,
+          595.2756
+        ],
+        "width_pt": 419.5276,
+        "height_pt": 595.2756,
+        "rotate": 0,
+        "size_name": "A5",
+        "has_text_layer": true,
+        "has_image": false
+      }
+    ],
+    "layout": {
+      "visual_direction": "vertical-rl",
+      "pdf_wmode": 1,
+      "cmap": "UniJIS-UCS2-V"
+    },
+    "fonts": [
+      {
+        "name": "HeiseiMin-W3",
+        "embedded": false,
+        "to_unicode": false
+      }
+    ],
+    "body_text": {
+      "text": "雨上がりの庭に紫陽花が咲き、東雲の空が明るくなった。喫茶店でコーヒーを飲んだ。",
+      "codepoints": [
+        "U+96E8",
+        "U+4E0A",
+        "U+304C",
+        "U+308A",
+        "U+306E",
+        "U+5EAD",
+        "U+306B",
+        "U+7D2B",
+        "U+967D",
+        "U+82B1",
+        "U+304C",
+        "U+54B2",
+        "U+304D",
+        "U+3001",
+        "U+6771",
+        "U+96F2",
+        "U+306E",
+        "U+7A7A",
+        "U+304C",
+        "U+660E",
+        "U+308B",
+        "U+304F",
+        "U+306A",
+        "U+3063",
+        "U+305F",
+        "U+3002",
+        "U+55AB",
+        "U+8336",
+        "U+5E97",
+        "U+3067",
+        "U+30B3",
+        "U+30FC",
+        "U+30D2",
+        "U+30FC",
+        "U+3092",
+        "U+98F2",
+        "U+3093",
+        "U+3060",
+        "U+3002"
+      ]
+    },
+    "columns": [
+      {
+        "text": "雨上がりの庭に紫陽花が咲き、",
+        "codepoints": [
+          "U+96E8",
+          "U+4E0A",
+          "U+304C",
+          "U+308A",
+          "U+306E",
+          "U+5EAD",
+          "U+306B",
+          "U+7D2B",
+          "U+967D",
+          "U+82B1",
+          "U+304C",
+          "U+54B2",
+          "U+304D",
+          "U+3001"
+        ]
+      },
+      {
+        "text": "東雲の空が明るくなった。",
+        "codepoints": [
+          "U+6771",
+          "U+96F2",
+          "U+306E",
+          "U+7A7A",
+          "U+304C",
+          "U+660E",
+          "U+308B",
+          "U+304F",
+          "U+306A",
+          "U+3063",
+          "U+305F",
+          "U+3002"
+        ]
+      },
+      {
+        "text": "喫茶店でコーヒーを飲んだ。",
+        "codepoints": [
+          "U+55AB",
+          "U+8336",
+          "U+5E97",
+          "U+3067",
+          "U+30B3",
+          "U+30FC",
+          "U+30D2",
+          "U+30FC",
+          "U+3092",
+          "U+98F2",
+          "U+3093",
+          "U+3060",
+          "U+3002"
+        ]
+      }
+    ],
+    "ruby": [
+      {
+        "base": {
+          "text": "紫陽花",
+          "codepoints": [
+            "U+7D2B",
+            "U+967D",
+            "U+82B1"
+          ]
+        },
+        "ruby": {
+          "text": "あじさい",
+          "codepoints": [
+            "U+3042",
+            "U+3058",
+            "U+3055",
+            "U+3044"
+          ]
+        }
+      },
+      {
+        "base": {
+          "text": "東雲",
+          "codepoints": [
+            "U+6771",
+            "U+96F2"
+          ]
+        },
+        "ruby": {
+          "text": "しののめ",
+          "codepoints": [
+            "U+3057",
+            "U+306E",
+            "U+306E",
+            "U+3081"
+          ]
+        }
+      }
+    ],
+    "ruby_in_text_layer": true
+  }
+}

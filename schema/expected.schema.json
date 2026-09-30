@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/safe-japanese-document-qa-pack/expected.schema.json",
+  "title": "Safe Japanese Document QA Pack Lite - expected.json",
+  "description": "Objective ground truth about one fixture input file. Only the keys required for each category are fixed; case-specific keys may be added.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "category", "description", "input", "features", "ground_truth"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^(pdf|ocr|csv|txt|archive)-[0-9]{3}$"},
+    "category": {"enum": ["pdf", "ocr", "csv", "txt", "archive"]},
+    "description": {"type": "string", "minLength": 1},
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "mime_type", "sha256"],
+      "properties": {
+        "file": {"type": "string", "pattern": "^input\\.(pdf|csv|txt|zip)$"},
+        "mime_type": {"type": "string"},
+        "encoding": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "features": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"}
+    },
+    "ground_truth": {"type": "object"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"category": {"const": "pdf"}}, "required": ["category"]},
+      "then": {
+        "properties": {
+          "id": {"pattern": "^pdf-"},
+          "input": {"properties": {"mime_type": {"const": "application/pdf"}}},
+          "ground_truth": {"$ref": "#/$defs/PdfGroundTruth"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"category": {"const": "ocr"}}, "required": ["category"]},
+      "then": {
+        "properties": {
+          "id": {"pattern": "^ocr-"},
+          "input": {"properties": {"mime_type": {"const": "application/pdf"}}},
+          "ground_truth": {
+            "$ref": "#/$defs/PdfGroundTruth",
+            "required": ["rendered_text_lines"],
+            "properties": {
+              "rendered_text_lines": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/TextValue"}},
+              "pages": {"items": {"properties": {"has_text_layer": {"const": false}}}}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"category": {"const": "csv"}}, "required": ["category"]},
+      "then": {
+        "properties": {
+          "id": {"pattern": "^csv-"},
+          "input": {"required": ["encoding"], "properties": {"mime_type": {"const": "text/csv"}}},
+          "ground_truth": {"$ref": "#/$defs/CsvGroundTruth"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"category": {"const": "txt"}}, "required": ["category"]},
+      "then": {
+        "properties": {
+          "id": {"pattern": "^txt-"},
+          "input": {"required": ["encoding"], "properties": {"mime_type": {"const": "text/plain"}}},
+          "ground_truth": {"$ref": "#/$defs/TxtGroundTruth"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"category": {"const": "archive"}}, "required": ["category"]},
+      "then": {
+        "properties": {
+          "id": {"pattern": "^archive-"},
+          "input": {"properties": {"mime_type": {"const": "application/zip"}}},
+          "ground_truth": {"$ref": "#/$defs/ArchiveGroundTruth"}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "TextValue": {
+      "type": "object",
+      "required": ["text", "codepoints"],
+      "properties": {
+        "text": {"type": "string"},
+        "codepoints": {"type": "array", "items": {"type": "string", "pattern": "^U\\+[0-9A-F]{4,6}$"}}
+      }
+    },
+    "Sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "PdfPage": {
+      "type": "object",
+      "required": ["index", "mediabox", "width_pt", "height_pt", "rotate", "has_text_layer", "has_image"],
+      "properties": {
+        "index": {"type": "integer", "minimum": 1},
+        "mediabox": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number"}},
+        "width_pt": {"type": "number", "exclusiveMinimum": 0},
+        "height_pt": {"type": "number", "exclusiveMinimum": 0},
+        "rotate": {"enum": [0, 90, 180, 270]},
+        "size_name": {"type": "string"},
+        "has_text_layer": {"type": "boolean"},
+        "has_image": {"type": "boolean"}
+      }
+    },
+    "PdfGroundTruth": {
+      "type": "object",
+      "required": ["page_count", "pages"],
+      "properties": {
+        "page_count": {"type": "integer", "minimum": 1},
+        "pages": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/PdfPage"}}
+      }
+    },
+    "CsvGroundTruth": {
+      "type": "object",
+      "required": ["encoding", "bom", "record_terminator", "has_header", "row_count", "column_count", "rows"],
+      "properties": {
+        "encoding": {"type": "string"},
+        "bom": {"type": "boolean"},
+        "record_terminator": {"enum": ["CRLF", "LF", "CR"]},
+        "has_header": {"type": "boolean"},
+        "row_count": {"type": "integer", "minimum": 1},
+        "column_count": {"type": "integer", "minimum": 1},
+        "rows": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "array", "items": {"$ref": "#/$defs/TextValue"}}
+        }
+      }
+    },
+    "TxtGroundTruth": {
+      "type": "object",
+      "required": ["encoding", "bom", "line_terminator", "trailing_newline", "unicode_version", "lines"],
+      "properties": {
+        "encoding": {"type": "string"},
+        "bom": {"type": "boolean"},
+        "line_terminator": {"enum": ["CRLF", "LF", "CR"]},
+        "trailing_newline": {"type": "boolean"},
+        "unicode_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "lines": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/TextValue"}}
+      }
+    },
+    "ArchiveEntry": {
+      "type": "object",
+      "required": ["raw_name_hex", "utf8_flag", "name_encoding", "name", "size", "sha256"],
+      "properties": {
+        "raw_name_hex": {"type": "string", "pattern": "^([0-9a-f]{2})+$"},
+        "utf8_flag": {"type": "boolean"},
+        "name_encoding": {"type": "string"},
+        "name": {"$ref": "#/$defs/TextValue"},
+        "size": {"type": "integer", "minimum": 0},
+        "sha256": {"$ref": "#/$defs/Sha256"}
+      }
+    },
+    "ArchiveGroundTruth": {
+      "type": "object",
+      "required": ["entry_count", "compression", "entries"],
+      "properties": {
+        "entry_count": {"type": "integer", "minimum": 1},
+        "compression": {"type": "string"},
+        "entries": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/ArchiveEntry"}}
+      }
+    }
+  }
+}

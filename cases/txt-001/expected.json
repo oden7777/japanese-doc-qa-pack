@@ -1,0 +1,97 @@
+{
+  "id": "txt-001",
+  "category": "txt",
+  "description": "UTF-8 text with Japanese strings that look identical but are stored as NFC (precomposed) on one line and NFD (base character plus combining voiced or semi-voiced sound mark) on the next, e.g. U+304C versus U+304B U+3099.",
+  "input": {
+    "file": "input.txt",
+    "mime_type": "text/plain",
+    "encoding": "UTF-8",
+    "sha256": "4a78fc9bf76ac5b578ab74515ff9c503fcd7565961d3f5891c2921df57b5ed2e"
+  },
+  "features": [
+    "nfc",
+    "nfd",
+    "combining-dakuten",
+    "combining-handakuten",
+    "canonical-equivalence"
+  ],
+  "ground_truth": {
+    "encoding": "UTF-8",
+    "bom": false,
+    "line_terminator": "LF",
+    "trailing_newline": true,
+    "unicode_version": "16.0.0",
+    "lines": [
+      {
+        "text": "が",
+        "codepoints": [
+          "U+304C"
+        ],
+        "is_nfc": true,
+        "is_nfd": false
+      },
+      {
+        "text": "が",
+        "codepoints": [
+          "U+304B",
+          "U+3099"
+        ],
+        "is_nfc": false,
+        "is_nfd": true
+      },
+      {
+        "text": "パ",
+        "codepoints": [
+          "U+30D1"
+        ],
+        "is_nfc": true,
+        "is_nfd": false
+      },
+      {
+        "text": "パ",
+        "codepoints": [
+          "U+30CF",
+          "U+309A"
+        ],
+        "is_nfc": false,
+        "is_nfd": true
+      },
+      {
+        "text": "ガイド",
+        "codepoints": [
+          "U+30AC",
+          "U+30A4",
+          "U+30C9"
+        ],
+        "is_nfc": true,
+        "is_nfd": false
+      },
+      {
+        "text": "ガイド",
+        "codepoints": [
+          "U+30AB",
+          "U+3099",
+          "U+30A4",
+          "U+30C8",
+          "U+3099"
+        ],
+        "is_nfc": false,
+        "is_nfd": true
+      }
+    ],
+    "canonically_equivalent_pairs": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ]
+    ]
+  }
+}

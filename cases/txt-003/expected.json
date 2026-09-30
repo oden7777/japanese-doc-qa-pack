@@ -1,0 +1,390 @@
+{
+  "id": "txt-003",
+  "category": "txt",
+  "description": "UTF-8 text with one string per line whose NFKC/NFKD (and in one case NFC) forms differ from the source: half-width katakana with voiced marks, full-width alphanumerics, circled and parenthesized characters, a square era name, a spacing voiced sound mark and a CJK compatibility ideograph.",
+  "input": {
+    "file": "input.txt",
+    "mime_type": "text/plain",
+    "encoding": "UTF-8",
+    "sha256": "f7fe4b4cc3fa4efc314df6cce1b6d2c64f5759e0ca6d3f761c01345a7bb59635"
+  },
+  "features": [
+    "nfkc",
+    "nfkd",
+    "halfwidth-katakana",
+    "fullwidth-alphanumerics",
+    "compatibility-characters",
+    "cjk-compatibility-ideograph"
+  ],
+  "ground_truth": {
+    "encoding": "UTF-8",
+    "bom": false,
+    "line_terminator": "LF",
+    "trailing_newline": true,
+    "unicode_version": "16.0.0",
+    "lines": [
+      {
+        "text": "ｶﾞ",
+        "codepoints": [
+          "U+FF76",
+          "U+FF9E"
+        ]
+      },
+      {
+        "text": "ﾊﾟ",
+        "codepoints": [
+          "U+FF8A",
+          "U+FF9F"
+        ]
+      },
+      {
+        "text": "ＡＢＣ１２３",
+        "codepoints": [
+          "U+FF21",
+          "U+FF22",
+          "U+FF23",
+          "U+FF11",
+          "U+FF12",
+          "U+FF13"
+        ]
+      },
+      {
+        "text": "①",
+        "codepoints": [
+          "U+2460"
+        ]
+      },
+      {
+        "text": "㈱",
+        "codepoints": [
+          "U+3231"
+        ]
+      },
+      {
+        "text": "㍻",
+        "codepoints": [
+          "U+337B"
+        ]
+      },
+      {
+        "text": "゛",
+        "codepoints": [
+          "U+309B"
+        ]
+      },
+      {
+        "text": "神",
+        "codepoints": [
+          "U+FA19"
+        ]
+      }
+    ],
+    "normalizations": [
+      {
+        "line": 1,
+        "source": {
+          "text": "ｶﾞ",
+          "codepoints": [
+            "U+FF76",
+            "U+FF9E"
+          ]
+        },
+        "nfc": {
+          "text": "ｶﾞ",
+          "codepoints": [
+            "U+FF76",
+            "U+FF9E"
+          ]
+        },
+        "nfd": {
+          "text": "ｶﾞ",
+          "codepoints": [
+            "U+FF76",
+            "U+FF9E"
+          ]
+        },
+        "nfkc": {
+          "text": "ガ",
+          "codepoints": [
+            "U+30AC"
+          ]
+        },
+        "nfkd": {
+          "text": "ガ",
+          "codepoints": [
+            "U+30AB",
+            "U+3099"
+          ]
+        }
+      },
+      {
+        "line": 2,
+        "source": {
+          "text": "ﾊﾟ",
+          "codepoints": [
+            "U+FF8A",
+            "U+FF9F"
+          ]
+        },
+        "nfc": {
+          "text": "ﾊﾟ",
+          "codepoints": [
+            "U+FF8A",
+            "U+FF9F"
+          ]
+        },
+        "nfd": {
+          "text": "ﾊﾟ",
+          "codepoints": [
+            "U+FF8A",
+            "U+FF9F"
+          ]
+        },
+        "nfkc": {
+          "text": "パ",
+          "codepoints": [
+            "U+30D1"
+          ]
+        },
+        "nfkd": {
+          "text": "パ",
+          "codepoints": [
+            "U+30CF",
+            "U+309A"
+          ]
+        }
+      },
+      {
+        "line": 3,
+        "source": {
+          "text": "ＡＢＣ１２３",
+          "codepoints": [
+            "U+FF21",
+            "U+FF22",
+            "U+FF23",
+            "U+FF11",
+            "U+FF12",
+            "U+FF13"
+          ]
+        },
+        "nfc": {
+          "text": "ＡＢＣ１２３",
+          "codepoints": [
+            "U+FF21",
+            "U+FF22",
+            "U+FF23",
+            "U+FF11",
+            "U+FF12",
+            "U+FF13"
+          ]
+        },
+        "nfd": {
+          "text": "ＡＢＣ１２３",
+          "codepoints": [
+            "U+FF21",
+            "U+FF22",
+            "U+FF23",
+            "U+FF11",
+            "U+FF12",
+            "U+FF13"
+          ]
+        },
+        "nfkc": {
+          "text": "ABC123",
+          "codepoints": [
+            "U+0041",
+            "U+0042",
+            "U+0043",
+            "U+0031",
+            "U+0032",
+            "U+0033"
+          ]
+        },
+        "nfkd": {
+          "text": "ABC123",
+          "codepoints": [
+            "U+0041",
+            "U+0042",
+            "U+0043",
+            "U+0031",
+            "U+0032",
+            "U+0033"
+          ]
+        }
+      },
+      {
+        "line": 4,
+        "source": {
+          "text": "①",
+          "codepoints": [
+            "U+2460"
+          ]
+        },
+        "nfc": {
+          "text": "①",
+          "codepoints": [
+            "U+2460"
+          ]
+        },
+        "nfd": {
+          "text": "①",
+          "codepoints": [
+            "U+2460"
+          ]
+        },
+        "nfkc": {
+          "text": "1",
+          "codepoints": [
+            "U+0031"
+          ]
+        },
+        "nfkd": {
+          "text": "1",
+          "codepoints": [
+            "U+0031"
+          ]
+        }
+      },
+      {
+        "line": 5,
+        "source": {
+          "text": "㈱",
+          "codepoints": [
+            "U+3231"
+          ]
+        },
+        "nfc": {
+          "text": "㈱",
+          "codepoints": [
+            "U+3231"
+          ]
+        },
+        "nfd": {
+          "text": "㈱",
+          "codepoints": [
+            "U+3231"
+          ]
+        },
+        "nfkc": {
+          "text": "(株)",
+          "codepoints": [
+            "U+0028",
+            "U+682A",
+            "U+0029"
+          ]
+        },
+        "nfkd": {
+          "text": "(株)",
+          "codepoints": [
+            "U+0028",
+            "U+682A",
+            "U+0029"
+          ]
+        }
+      },
+      {
+        "line": 6,
+        "source": {
+          "text": "㍻",
+          "codepoints": [
+            "U+337B"
+          ]
+        },
+        "nfc": {
+          "text": "㍻",
+          "codepoints": [
+            "U+337B"
+          ]
+        },
+        "nfd": {
+          "text": "㍻",
+          "codepoints": [
+            "U+337B"
+          ]
+        },
+        "nfkc": {
+          "text": "平成",
+          "codepoints": [
+            "U+5E73",
+            "U+6210"
+          ]
+        },
+        "nfkd": {
+          "text": "平成",
+          "codepoints": [
+            "U+5E73",
+            "U+6210"
+          ]
+        }
+      },
+      {
+        "line": 7,
+        "source": {
+          "text": "゛",
+          "codepoints": [
+            "U+309B"
+          ]
+        },
+        "nfc": {
+          "text": "゛",
+          "codepoints": [
+            "U+309B"
+          ]
+        },
+        "nfd": {
+          "text": "゛",
+          "codepoints": [
+            "U+309B"
+          ]
+        },
+        "nfkc": {
+          "text": " ゙",
+          "codepoints": [
+            "U+0020",
+            "U+3099"
+          ]
+        },
+        "nfkd": {
+          "text": " ゙",
+          "codepoints": [
+            "U+0020",
+            "U+3099"
+          ]
+        }
+      },
+      {
+        "line": 8,
+        "source": {
+          "text": "神",
+          "codepoints": [
+            "U+FA19"
+          ]
+        },
+        "nfc": {
+          "text": "神",
+          "codepoints": [
+            "U+795E"
+          ]
+        },
+        "nfd": {
+          "text": "神",
+          "codepoints": [
+            "U+795E"
+          ]
+        },
+        "nfkc": {
+          "text": "神",
+          "codepoints": [
+            "U+795E"
+          ]
+        },
+        "nfkd": {
+          "text": "神",
+          "codepoints": [
+            "U+795E"
+          ]
+        }
+      }
+    ]
+  }
+}

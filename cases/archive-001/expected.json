@@ -1,0 +1,206 @@
+{
+  "id": "archive-001",
+  "category": "archive",
+  "description": "Uncompressed ZIP whose entry names mix UTF-8 (with the UTF-8 flag, general purpose bit 11) and CP932 (without the flag). Names contain Japanese, ASCII and ideographic spaces, half-width katakana, an NFD-decomposed kana, an emoji, and CP932 names whose second byte is 0x5C.",
+  "input": {
+    "file": "input.zip",
+    "mime_type": "application/zip",
+    "sha256": "919395b70de445646db487bc121d9eefde698bdd4893381530052aa093cab5bd"
+  },
+  "features": [
+    "zip",
+    "utf8-filename-flag",
+    "cp932-filename",
+    "mixed-filename-encodings",
+    "0x5c-trail-byte",
+    "nfd-filename",
+    "emoji-filename",
+    "space-in-filename"
+  ],
+  "ground_truth": {
+    "entry_count": 8,
+    "compression": "stored",
+    "timestamp": "1980-01-01T00:00:00 (DOS date/time, no timezone)",
+    "entries": [
+      {
+        "raw_name_hex": "e697a5e69cace8aa9ee38395e382a1e382a4e383ab2e747874",
+        "utf8_flag": true,
+        "name_encoding": "utf-8",
+        "name": {
+          "text": "日本語ファイル.txt",
+          "codepoints": [
+            "U+65E5",
+            "U+672C",
+            "U+8A9E",
+            "U+30D5",
+            "U+30A1",
+            "U+30A4",
+            "U+30EB",
+            "U+002E",
+            "U+0074",
+            "U+0078",
+            "U+0074"
+          ]
+        },
+        "size": 9,
+        "sha256": "81c7af9ec882761d091d486c64c39ccf57150bb1eccddf8c08f1c243019db6ae",
+        "crc32": "9cda5e4e"
+      },
+      {
+        "raw_name_hex": "737061636520696e206e616d652e747874",
+        "utf8_flag": true,
+        "name_encoding": "utf-8",
+        "name": {
+          "text": "space in name.txt",
+          "codepoints": [
+            "U+0073",
+            "U+0070",
+            "U+0061",
+            "U+0063",
+            "U+0065",
+            "U+0020",
+            "U+0069",
+            "U+006E",
+            "U+0020",
+            "U+006E",
+            "U+0061",
+            "U+006D",
+            "U+0065",
+            "U+002E",
+            "U+0074",
+            "U+0078",
+            "U+0074"
+          ]
+        },
+        "size": 9,
+        "sha256": "e4320ec337d97204d85e03e2ea2abac52e7aba2262267ef4bea774621f72bc16",
+        "crc32": "b7f70d8d"
+      },
+      {
+        "raw_name_hex": "e585a8e8a792e38080e7a9bae799bd2e747874",
+        "utf8_flag": true,
+        "name_encoding": "utf-8",
+        "name": {
+          "text": "全角　空白.txt",
+          "codepoints": [
+            "U+5168",
+            "U+89D2",
+            "U+3000",
+            "U+7A7A",
+            "U+767D",
+            "U+002E",
+            "U+0074",
+            "U+0078",
+            "U+0074"
+          ]
+        },
+        "size": 9,
+        "sha256": "091d10fc52c000f18c38145dd76962bfc6862c84e65c54e1748d229a57f23610",
+        "crc32": "aeec3ccc"
+      },
+      {
+        "raw_name_hex": "efbdb6efbe80efbdb6efbe852e747874",
+        "utf8_flag": true,
+        "name_encoding": "utf-8",
+        "name": {
+          "text": "ｶﾀｶﾅ.txt",
+          "codepoints": [
+            "U+FF76",
+            "U+FF80",
+            "U+FF76",
+            "U+FF85",
+            "U+002E",
+            "U+0074",
+            "U+0078",
+            "U+0074"
+          ]
+        },
+        "size": 9,
+        "sha256": "0e62a35a2bf97e1dabee889e27de7c6ea887b0adf1db7d97a6ae9ff135c27c0a",
+        "crc32": "e1adaa0b"
+      },
+      {
+        "raw_name_hex": "e3818be382992e747874",
+        "utf8_flag": true,
+        "name_encoding": "utf-8",
+        "name": {
+          "text": "が.txt",
+          "codepoints": [
+            "U+304B",
+            "U+3099",
+            "U+002E",
+            "U+0074",
+            "U+0078",
+            "U+0074"
+          ]
+        },
+        "size": 9,
+        "sha256": "f5ba155d286fe1ec086509206530f2cff59700571052155853ba4b53cb1c6e1e",
+        "crc32": "f8b69b4a"
+      },
+      {
+        "raw_name_hex": "656d6f6a695ff09f98802e747874",
+        "utf8_flag": true,
+        "name_encoding": "utf-8",
+        "name": {
+          "text": "emoji_😀.txt",
+          "codepoints": [
+            "U+0065",
+            "U+006D",
+            "U+006F",
+            "U+006A",
+            "U+0069",
+            "U+005F",
+            "U+1F600",
+            "U+002E",
+            "U+0074",
+            "U+0078",
+            "U+0074"
+          ]
+        },
+        "size": 9,
+        "sha256": "ccec3a4c0796bae470cc6f06dec79ee2ad22a595c2fd0ee2e6af006825a95e3f",
+        "crc32": "d39bc889"
+      },
+      {
+        "raw_name_hex": "955c8ea62e747874",
+        "utf8_flag": false,
+        "name_encoding": "cp932",
+        "name": {
+          "text": "表示.txt",
+          "codepoints": [
+            "U+8868",
+            "U+793A",
+            "U+002E",
+            "U+0074",
+            "U+0078",
+            "U+0074"
+          ]
+        },
+        "size": 9,
+        "sha256": "f9b8e1af124a4a2ab94f0606b3c8a3fa5f88e31326a136b8a105f955bee9b1df",
+        "crc32": "ca80f9c8"
+      },
+      {
+        "raw_name_hex": "835c837483672e747874",
+        "utf8_flag": false,
+        "name_encoding": "cp932",
+        "name": {
+          "text": "ソフト.txt",
+          "codepoints": [
+            "U+30BD",
+            "U+30D5",
+            "U+30C8",
+            "U+002E",
+            "U+0074",
+            "U+0078",
+            "U+0074"
+          ]
+        },
+        "size": 9,
+        "sha256": "48498a04aab7a911de708be314dfd2c03a12dd7396def320d521705460c61ff6",
+        "crc32": "4d18e507"
+      }
+    ]
+  }
+}

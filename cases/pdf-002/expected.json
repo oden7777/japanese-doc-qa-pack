@@ -1,0 +1,130 @@
+{
+  "id": "pdf-002",
+  "category": "pdf",
+  "description": "Three-page PDF mixing page sizes and rotation: A4 portrait, A4 with /Rotate 90 (portrait MediaBox, displayed as landscape) and A5 portrait. Each page has one short Japanese text label in an embedded font.",
+  "input": {
+    "file": "input.pdf",
+    "mime_type": "application/pdf",
+    "sha256": "b991f6c6815ddfc65c36b0dea2a84215d06a178d4b9f048ad11bec7cf4652966"
+  },
+  "features": [
+    "page-rotation",
+    "mixed-page-sizes",
+    "a4",
+    "a5",
+    "text-layer",
+    "embedded-font"
+  ],
+  "ground_truth": {
+    "page_count": 3,
+    "pages": [
+      {
+        "index": 1,
+        "mediabox": [
+          0.0,
+          0.0,
+          595.2756,
+          841.8898
+        ],
+        "width_pt": 595.2756,
+        "height_pt": 841.8898,
+        "rotate": 0,
+        "size_name": "A4",
+        "has_text_layer": true,
+        "has_image": false,
+        "text": {
+          "text": "1ページ目 A4 回転0度",
+          "codepoints": [
+            "U+0031",
+            "U+30DA",
+            "U+30FC",
+            "U+30B8",
+            "U+76EE",
+            "U+0020",
+            "U+0041",
+            "U+0034",
+            "U+0020",
+            "U+56DE",
+            "U+8EE2",
+            "U+0030",
+            "U+5EA6"
+          ]
+        }
+      },
+      {
+        "index": 2,
+        "mediabox": [
+          0.0,
+          0.0,
+          595.2756,
+          841.8898
+        ],
+        "width_pt": 595.2756,
+        "height_pt": 841.8898,
+        "rotate": 90,
+        "size_name": "A4",
+        "has_text_layer": true,
+        "has_image": false,
+        "text": {
+          "text": "2ページ目 A4 回転90度",
+          "codepoints": [
+            "U+0032",
+            "U+30DA",
+            "U+30FC",
+            "U+30B8",
+            "U+76EE",
+            "U+0020",
+            "U+0041",
+            "U+0034",
+            "U+0020",
+            "U+56DE",
+            "U+8EE2",
+            "U+0039",
+            "U+0030",
+            "U+5EA6"
+          ]
+        }
+      },
+      {
+        "index": 3,
+        "mediabox": [
+          0.0,
+          0.0,
+          419.5276,
+          595.2756
+        ],
+        "width_pt": 419.5276,
+        "height_pt": 595.2756,
+        "rotate": 0,
+        "size_name": "A5",
+        "has_text_layer": true,
+        "has_image": false,
+        "text": {
+          "text": "3ページ目 A5 回転0度",
+          "codepoints": [
+            "U+0033",
+            "U+30DA",
+            "U+30FC",
+            "U+30B8",
+            "U+76EE",
+            "U+0020",
+            "U+0041",
+            "U+0035",
+            "U+0020",
+            "U+56DE",
+            "U+8EE2",
+            "U+0030",
+            "U+5EA6"
+          ]
+        }
+      }
+    ],
+    "fonts": [
+      {
+        "name": "BIZUDGothic-Regular",
+        "embedded": true,
+        "subset": true
+      }
+    ]
+  }
+}

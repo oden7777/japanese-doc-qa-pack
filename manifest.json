@@ -1,0 +1,135 @@
+{
+  "cases": [
+    {
+      "id": "archive-001",
+      "category": "archive",
+      "path": "cases/archive-001",
+      "features": [
+        "zip",
+        "utf8-filename-flag",
+        "cp932-filename",
+        "mixed-filename-encodings",
+        "0x5c-trail-byte",
+        "nfd-filename",
+        "emoji-filename",
+        "space-in-filename"
+      ]
+    },
+    {
+      "id": "csv-001",
+      "category": "csv",
+      "path": "cases/csv-001",
+      "features": [
+        "windows-31j",
+        "cp932",
+        "quoted-field",
+        "embedded-comma",
+        "escaped-quote",
+        "embedded-newline",
+        "crlf",
+        "cp932-mapping-differences"
+      ]
+    },
+    {
+      "id": "csv-002",
+      "category": "csv",
+      "path": "cases/csv-002",
+      "features": [
+        "utf-8",
+        "bom",
+        "crlf",
+        "halfwidth-katakana",
+        "fullwidth-alphanumerics",
+        "compatibility-characters"
+      ]
+    },
+    {
+      "id": "ocr-001",
+      "category": "ocr",
+      "path": "cases/ocr-001",
+      "features": [
+        "image-only-pdf",
+        "no-text-layer",
+        "receipt",
+        "fixed-pitch-layout",
+        "fullwidth-yen-sign"
+      ]
+    },
+    {
+      "id": "pdf-001",
+      "category": "pdf",
+      "path": "cases/pdf-001",
+      "features": [
+        "vertical-writing",
+        "pdf-wmode-1",
+        "ruby",
+        "text-layer",
+        "cid-font",
+        "non-embedded-font"
+      ]
+    },
+    {
+      "id": "pdf-002",
+      "category": "pdf",
+      "path": "cases/pdf-002",
+      "features": [
+        "page-rotation",
+        "mixed-page-sizes",
+        "a4",
+        "a5",
+        "text-layer",
+        "embedded-font"
+      ]
+    },
+    {
+      "id": "pdf-003",
+      "category": "pdf",
+      "path": "cases/pdf-003",
+      "features": [
+        "scanned-image",
+        "invisible-text-layer",
+        "text-render-mode-3",
+        "searchable-pdf",
+        "embedded-font"
+      ]
+    },
+    {
+      "id": "txt-001",
+      "category": "txt",
+      "path": "cases/txt-001",
+      "features": [
+        "nfc",
+        "nfd",
+        "combining-dakuten",
+        "combining-handakuten",
+        "canonical-equivalence"
+      ]
+    },
+    {
+      "id": "txt-002",
+      "category": "txt",
+      "path": "cases/txt-002",
+      "features": [
+        "zero-width-space",
+        "no-break-space",
+        "ideographic-space",
+        "zero-width-no-break-space",
+        "word-joiner",
+        "invisible-characters"
+      ]
+    },
+    {
+      "id": "txt-003",
+      "category": "txt",
+      "path": "cases/txt-003",
+      "features": [
+        "nfkc",
+        "nfkd",
+        "halfwidth-katakana",
+        "fullwidth-alphanumerics",
+        "compatibility-characters",
+        "cjk-compatibility-ideograph"
+      ]
+    }
+  ]
+}
