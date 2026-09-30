@@ -1,16 +1,84 @@
 # Safe Japanese Document QA Pack Lite
 
-Static, safe and reproducible test fixtures for QA of software that handles
-Japanese documents: PDF, OCR, CSV, Unicode text and ZIP file names.
+**Safe, reproducible test fixtures for Japanese PDF, OCR, CSV, Unicode and ZIP QA.**
 
-Each case is an input file plus an `expected.json` that records **objective
-facts about that file** (its ground truth): exact text and Unicode code
-points, CSV rows and values, PDF page count, rotation, page sizes and text
-layers, archive entry names and their raw bytes. It does not record how a
-particular library *should* behave; comparing your tool's output with the
-ground truth is up to your own tests.
+Catch Japanese document-processing edge cases before your users do.
 
-This is a static fixture collection, not a service. Everything works offline.
+This Lite edition contains **10 ready-to-use fixtures** covering problems such as:
+
+- true PDF vertical writing (`WMode 1`)
+- image-only and searchable scanned PDFs
+- Windows-31J / CP932 CSV
+- quoted fields and embedded newlines
+- NFC / NFD / NFKC / NFKD differences
+- invisible Unicode characters
+- half-width katakana and compatibility characters
+- UTF-8 and CP932 filenames inside ZIP archives
+
+Each fixture includes the input file and machine-readable ground truth in `expected.json`.
+
+Everything works offline. No API, account or external service is required.
+
+---
+
+## Pro edition
+
+A larger commercial edition is planned with **100+ curated Japanese document QA fixtures**, including more compound and production-oriented edge cases.
+
+**Planned Pro features:**
+
+- 100+ fixtures
+- more PDF, OCR, CSV, Unicode and archive edge cases
+- compound cases combining multiple failure conditions
+- machine-readable ground truth
+- integrity verification
+- commercial-use license
+- one-time purchase — no subscription
+
+**Early access price: ¥4,500 (approximately US$29)**
+
+> Pro is not available for download yet.  
+> If you want to be notified when it becomes available, join the early-access list.
+
+[Join the Pro early-access list →](PRO_WAITLIST_URL)
+
+---
+
+## What is ground truth?
+
+Each case is an input file plus an `expected.json` that records **objective facts about that file**.
+
+Depending on the fixture, this can include:
+
+- exact text and Unicode code points
+- Unicode normalization forms
+- CSV rows, columns and values
+- PDF page count
+- page rotation and dimensions
+- presence or absence of text layers
+- archive entry names
+- raw filename bytes
+- SHA-256 hashes
+
+The pack deliberately does **not** define how a particular library *should* behave.
+
+Your test code decides how your application should react and compares its output with the supplied ground truth.
+
+---
+
+## Who is this for?
+
+This pack is intended for developers and engineering teams working on software that processes Japanese documents, including:
+
+- PDF processing
+- OCR and Document AI
+- document ingestion pipelines
+- CSV importers
+- Unicode normalization
+- archive extraction
+- Japanese localization QA
+
+---
 
 ## Cases
 
@@ -25,21 +93,34 @@ This is a static fixture collection, not a service. Everything works offline.
 | [txt-001](cases/txt-001/README.md) | txt | The same kana strings in NFC and NFD |
 | [txt-002](cases/txt-002/README.md) | txt | Invisible characters: ZWSP, NBSP, IDEOGRAPHIC SPACE, mid-text U+FEFF, WORD JOINER |
 | [txt-003](cases/txt-003/README.md) | txt | Strings whose NFC/NFD/NFKC/NFKD forms differ, with all four forms recorded |
-| [archive-001](cases/archive-001/README.md) | archive | ZIP mixing UTF-8 (flagged) and CP932 (unflagged) entry names, incl. `0x5C` trail bytes |
+| [archive-001](cases/archive-001/README.md) | archive | ZIP mixing UTF-8 (flagged) and CP932 (unflagged) entry names, including `0x5C` trail bytes |
 
-Each case directory holds `input.*`, `expected.json` and a `README.md` that
-explains the case on its own.
+Each case directory contains:
+
+```text
+input.*
+expected.json
+README.md
+```
+
+The case README explains what the fixture contains and what kind of failure it is designed to expose.
+
+---
 
 ## Layout
 
-```
+```text
 cases/<id>/            input.*, expected.json, README.md
-schema/                expected.schema.json (JSON Schema 2020-12 for every expected.json)
+schema/                expected.schema.json
 manifest.json          id, category, path and features of every case
-tools/verify.py        integrity check (existence, schema, SHA-256)
-tools/gen/             one small generation script per case, common.py (shared helpers) and manifest.py
-fonts/                 BIZ UDGothic Regular and its license (used for generation only)
+tools/verify.py        integrity verification
+tools/gen/             fixture generation scripts and shared helpers
+fonts/                 BIZ UDGothic Regular and its license
 ```
+
+`schema/expected.schema.json` uses JSON Schema 2020-12 and validates every `expected.json`.
+
+---
 
 ## Verify the pack
 
@@ -50,53 +131,98 @@ pip install -r requirements.txt
 python tools/verify.py
 ```
 
-For every case listed in `manifest.json`, `verify.py` checks only three
-things: the listed files exist, `expected.json` passes
-`schema/expected.schema.json`, and the SHA-256 of the input file matches
-`input.sha256`. It prints `OK <id>` or `FAIL <id>: <reason>` per case and a
-summary line, and exits with 0 when every case passes, 1 when any case fails,
-and 2 when `manifest.json` or the schema cannot be read. It does not parse
-PDFs, run OCR or read CSV content, and it never uses the network.
+For every case listed in `manifest.json`, `verify.py` checks:
+
+1. required files exist
+2. `expected.json` passes the JSON Schema
+3. the SHA-256 of the input matches `input.sha256`
+
+Example output:
+
+```text
+OK pdf-001
+OK csv-001
+OK archive-001
+...
+```
+
+The verifier does **not** parse PDFs, run OCR, interpret CSV content or access the network.
+
+It only verifies the integrity and structure of the fixture pack itself.
+
+---
 
 ## Regenerate fixtures
 
-The committed files are authoritative: their SHA-256 values are fixed in
-`expected.json`. The scripts exist so the fixtures can be rebuilt or changed.
-With the pinned versions they reproduce the committed files byte for byte,
-but that is not guaranteed across library or font versions.
+The committed fixtures are authoritative.
 
-Generation uses Python 3.14 (Unicode 16.0.0), works offline and only uses
-files in this repository.
+Their SHA-256 values are recorded in `expected.json`. Generation scripts are included so fixtures can be reproduced or modified.
+
+With the currently pinned dependencies, the scripts reproduce the committed files byte-for-byte. Byte-for-byte reproduction is not guaranteed across different library or font versions.
+
+Generation uses Python 3.14 (Unicode 16.0.0) and works entirely offline.
 
 ```sh
 pip install -r requirements-gen.txt
-python tools/gen/pdf_001.py          # or any other tools/gen/<case>.py
+
+python tools/gen/pdf_001.py
+# or another tools/gen/<case>.py
+
 python tools/gen/manifest.py
 python tools/verify.py
 ```
 
-Each script builds `cases/<id>/input.*`, checks those exact bytes against the
-ground truth it is about to record (PDFs are read back with pypdf after
-writing), and only then writes `expected.json`, including the new SHA-256. Case `README.md` files are hand-written and never
-overwritten. If a regenerated input's SHA-256 changes, review the diff of
-`input.*` and `expected.json` before committing both.
+Each generator:
+
+1. creates `cases/<id>/input.*`
+2. reads the generated file back where appropriate
+3. verifies the facts that will become ground truth
+4. writes `expected.json`
+5. records the resulting SHA-256
+
+PDF fixtures are read back with `pypdf` after generation.
+
+Case `README.md` files are maintained manually and are never overwritten.
+
+If regeneration changes a fixture's SHA-256, review the changes to both `input.*` and `expected.json` before committing them.
+
+---
 
 ## Safety
+
+The fixtures are intentionally designed to exercise edge cases without containing active or executable payloads.
 
 - All names, shops, addresses, phone numbers and amounts are fictional.
 - PDFs contain no JavaScript, actions, links, annotations or embedded files.
 - CSV cells never start with `=`, `+`, `-` or `@`.
-- The ZIP contains only short text files: no executables, links, nested
-  archives, absolute paths or `..`.
+- The ZIP contains only short text files.
+- The ZIP contains no executables, links, nested archives, absolute paths or `..`.
 - Text files contain no bidirectional control characters.
+
+**"Safe" means that this repository does not intentionally include executable or active malicious payloads. It is not a security guarantee for software processing arbitrary files.**
+
+---
 
 ## License
 
-- Code (`tools/`, `tests/`): MIT, see [LICENSE](LICENSE).
-- Fixture data (`cases/`, `schema/`, `manifest.json`): CC0 1.0, see
-  [LICENSE-DATA](LICENSE-DATA).
-- Third-party material keeps its own license: BIZ UDGothic in `fonts/` is
-  under the SIL Open Font License 1.1, see [fonts/OFL.txt](fonts/OFL.txt).
+### Code
 
-These licenses apply to this Lite edition only. They do not apply to any
-future Pro edition, which will have its own separate commercial license.
+`tools/` and `tests/` are licensed under the MIT License.
+
+See [LICENSE](LICENSE).
+
+### Lite fixture data
+
+`cases/`, `schema/` and `manifest.json` are released under CC0 1.0.
+
+See [LICENSE-DATA](LICENSE-DATA).
+
+### Third-party material
+
+BIZ UDGothic in `fonts/` is distributed under the SIL Open Font License 1.1.
+
+See [fonts/OFL.txt](fonts/OFL.txt).
+
+These licenses apply to the **Lite edition only**.
+
+They do not apply to the future Pro edition, which will use a separate commercial license.
